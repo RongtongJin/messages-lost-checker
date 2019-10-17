@@ -7,12 +7,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Checker {
+public class SimpleChecker {
 
-    private static final String fileName = "/Users/jinrongtong/output.txt";
+    private static final String FILE_NAME = "/Users/jinrongtong/Desktop/msglogaa";
 
     public static void main(String[] args) throws IOException {
 
+        long startTime = System.currentTimeMillis();
         Set<String> enqueueSet = getLinesStream().filter(x -> x[1].equals("enqueue")).map(x -> x[2]).collect(
             Collectors.toSet());
         Set<String> dequeueSet = getLinesStream().filter(x -> x[1].equals("dequeue")).map(x -> x[2]).collect(
@@ -29,10 +30,11 @@ public class Checker {
             System.out.println("Number of duplicate messages: " + (dequeueCount - dequeueSet.size()));
         }
         System.out.println("valid: " + (noMissingMessages & noUnexpectMessages));
+        System.out.println("spend "+(System.currentTimeMillis()-startTime)/1000+"s");
     }
 
     public static Stream<String[]> getLinesStream() throws IOException {
-        return Files.lines(Paths.get(fileName)).map(line -> {
+        return Files.lines(Paths.get(FILE_NAME)).map(line -> {
             String[] array = line.split(" ");
             return array;
         });
