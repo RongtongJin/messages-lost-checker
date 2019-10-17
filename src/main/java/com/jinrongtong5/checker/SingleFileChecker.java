@@ -1,5 +1,6 @@
 package com.jinrongtong5.checker;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,22 +13,29 @@ public class SingleFileChecker {
     private static final String FILE_NAME = "/Users/jinrongtong/Desktop/msglogaa";
 
     public static void main(String[] args) throws IOException {
+        singleFileCheck(FILE_NAME);
+    }
 
+    public static void singleFileCheck(String fileName) throws IOException {
+        if (!new File(fileName).exists()) {
+            System.out.println("File not exist.");
+            System.exit(0);
+        }
         long startTime = System.currentTimeMillis();
         Set<String> dequeueSet = new HashSet<>();
         Set<String> enqueueSet = new HashSet<>();
         AtomicLong enqueueCount = new AtomicLong();
         AtomicLong dequeueCount = new AtomicLong();
-        checkFile(FILE_NAME, enqueueSet, dequeueSet, enqueueCount, dequeueCount);
+        checkFile(fileName, enqueueSet, dequeueSet, enqueueCount, dequeueCount);
         Utils.outputResult(enqueueSet, enqueueCount, dequeueCount);
         System.out.println(
-            "check " + FILE_NAME + " file spend " + (System.currentTimeMillis() - startTime) / 1000 + " s.");
+            "check " + fileName + " file spend " + (System.currentTimeMillis() - startTime) / 1000 + " s.");
     }
 
     public static void checkFile(String fileName, Set<String> enqueueSet, Set<String> dequeueSet,
         AtomicLong enqueueCount, AtomicLong dequeueCount) throws IOException {
         System.out.println("start check " + fileName + " file....");
-        Files.lines(Paths.get(fileName)).map(x->x.split(" ")).forEach(line -> {
+        Files.lines(Paths.get(fileName)).map(x -> x.split(" ")).forEach(line -> {
             if (line[1].equals("enqueue")) {
                 enqueueCount.incrementAndGet();
                 enqueueSet.add(line[2]);

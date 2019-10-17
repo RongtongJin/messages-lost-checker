@@ -30,7 +30,7 @@ public class SimpleChecker {
             System.out.println("Number of duplicate messages: " + (dequeueCount - dequeueSet.size()));
         }
         System.out.println("valid: " + (noMissingMessages & noUnexpectMessages));
-        System.out.println("spend "+(System.currentTimeMillis()-startTime)/1000+"s");
+        System.out.println("spend " + (System.currentTimeMillis() - startTime) / 1000 + "s");
     }
 
     public static Stream<String[]> getLinesStream() throws IOException {
