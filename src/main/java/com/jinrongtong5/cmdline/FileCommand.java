@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.beust.jcommander.Parameter;
 import com.jinrongtong5.checker.SingleFileChecker;
 
-public class SingleFileCommand extends BaseCommand {
+public class FileCommand extends BaseCommand {
 
     @Parameter(names = {"--file", "-f"}, description = "File of inspection", required = true)
     public String file;

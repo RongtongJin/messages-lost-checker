@@ -8,8 +8,8 @@ import com.beust.jcommander.JCommander;
 public class MainCommand {
     public static void main(String[] args) {
         Map<String, BaseCommand> commands = new HashMap<>();
-        commands.put("dir", new MutilFileCommand());
-        commands.put("file", new SingleFileCommand());
+        commands.put("dir", new DirCommand());
+        commands.put("file", new FileCommand());
 
         JCommander.Builder builder = JCommander.newBuilder();
         JCommander jc = builder.build();

@@ -3,7 +3,7 @@ package com.jinrongtong5.cmdline;
 import com.beust.jcommander.Parameter;
 import com.jinrongtong5.checker.MutilFileChecker;
 
-public class MutilFileCommand extends BaseCommand {
+public class DirCommand extends BaseCommand {
 
     @Parameter(names = {"--dir", "-d"}, description = "Directory of inspection", required = true)
     public String dir;
