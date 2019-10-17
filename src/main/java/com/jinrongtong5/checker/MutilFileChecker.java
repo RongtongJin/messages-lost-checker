@@ -2,14 +2,10 @@ package com.jinrongtong5.checker;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 public class MutilFileChecker {
 
@@ -35,7 +31,7 @@ public class MutilFileChecker {
                 e.printStackTrace();
             }
         });
-        utils.outputResult(enqueueSet, enqueueCount, dequeueCount);
+        Utils.outputResult(enqueueSet, enqueueCount, dequeueCount);
         System.out.println("spend " + (System.currentTimeMillis() - startTime) / 1000 + "s");
     }
 }

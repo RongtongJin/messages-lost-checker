@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class SingleFileChecker {
@@ -20,7 +19,7 @@ public class SingleFileChecker {
         AtomicLong enqueueCount = new AtomicLong();
         AtomicLong dequeueCount = new AtomicLong();
         checkFile(FILE_NAME, enqueueSet, dequeueSet, enqueueCount, dequeueCount);
-        utils.outputResult(enqueueSet, enqueueCount, dequeueCount);
+        Utils.outputResult(enqueueSet, enqueueCount, dequeueCount);
         System.out.println(
             "check " + FILE_NAME + " file spend " + (System.currentTimeMillis() - startTime) / 1000 + " s.");
     }
