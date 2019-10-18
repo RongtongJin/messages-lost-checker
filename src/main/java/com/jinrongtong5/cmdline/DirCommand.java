@@ -1,18 +1,21 @@
 package com.jinrongtong5.cmdline;
 
+import java.util.Objects;
+
 import com.beust.jcommander.Parameter;
-import com.jinrongtong5.checker.MutilFileChecker;
+import com.jinrongtong5.checker.DirChecker;
 
 public class DirCommand extends BaseCommand {
 
     @Parameter(names = {"--dir", "-d"}, description = "Directory of inspection", required = true)
-    public String dir;
+    private String dir = null;
 
     @Parameter(names = {"--prefix", "-p"}, description = "Prefix for file filtering")
-    public String prefix = null;
+    private String prefix = null;
 
     @Override
     public void doCommand() {
-        MutilFileChecker.mutilFileCheck(dir, prefix);
+        Objects.requireNonNull(dir);
+        DirChecker.mutilFileCheck(dir, prefix);
     }
 }

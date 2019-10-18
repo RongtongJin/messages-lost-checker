@@ -9,5 +9,9 @@ public class Utils {
         System.out.println("enqueue count: " + enqueueCount);
         System.out.println("dequeue count: " + dequeueCount);
         System.out.println("no missing messages: " + enqueueSet.isEmpty());
+        if (!enqueueSet.isEmpty()){
+            System.out.println("missing messages are:");
+            enqueueSet.forEach(System.out::println);
+        }
     }
 }

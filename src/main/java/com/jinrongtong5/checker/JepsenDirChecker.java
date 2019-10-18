@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class MutilFileChecker {
+public class JepsenDirChecker {
 
     public static final String DIR = "/Users/jinrongtong/Desktop/test/";
 
@@ -37,7 +37,7 @@ public class MutilFileChecker {
             file -> prefix == null || file.getName().startsWith(prefix))
             .forEach(file -> {
                 try {
-                    SingleFileChecker.checkFile(file.getPath(), enqueueSet, dequeueSet, enqueueCount, dequeueCount);
+                    JepsenFileChecker.checkFile(file.getPath(), enqueueSet, dequeueSet, enqueueCount, dequeueCount);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

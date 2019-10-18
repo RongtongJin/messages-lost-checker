@@ -10,6 +10,7 @@ public class MainCommand {
         Map<String, BaseCommand> commands = new HashMap<>();
         commands.put("dir", new DirCommand());
         commands.put("file", new FileCommand());
+        commands.put("jepsen", new JepsenCommand());
 
         JCommander.Builder builder = JCommander.newBuilder();
         JCommander jc = builder.build();

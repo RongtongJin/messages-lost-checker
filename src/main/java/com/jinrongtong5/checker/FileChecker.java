@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class SingleFileChecker {
+public class FileChecker {
 
     private static final String FILE_NAME = "/Users/jinrongtong/Desktop/msglogaa";
 

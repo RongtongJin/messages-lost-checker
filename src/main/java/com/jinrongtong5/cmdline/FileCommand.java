@@ -1,9 +1,10 @@
 package com.jinrongtong5.cmdline;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import com.beust.jcommander.Parameter;
-import com.jinrongtong5.checker.SingleFileChecker;
+import com.jinrongtong5.checker.FileChecker;
 
 public class FileCommand extends BaseCommand {
 
@@ -12,8 +13,9 @@ public class FileCommand extends BaseCommand {
 
     @Override
     public void doCommand() {
+        Objects.requireNonNull(file);
         try {
-            SingleFileChecker.singleFileCheck(file);
+            FileChecker.singleFileCheck(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
