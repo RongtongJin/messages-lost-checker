@@ -45,7 +45,7 @@ Example:
 ### Command Line
 
 ```
- <main class> [command] [command options]
+java -jar target/Checker.jar [command] [command options]
   Commands:
     jepsen      
       Usage: jepsen [options]
